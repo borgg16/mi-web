@@ -5,7 +5,7 @@
     <title><?= $titulo; ?></title>
     <meta charset="UTF-8">
     <meta autor="Borja Morón">
-    <link rel="stylesheet" href="<?= base_url('\assets\css\estilos.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/estilos.css') ?>">
 </head>
 
 <body>
@@ -28,22 +28,22 @@
         <h2>Novedades</h2>
         <div class="novedades">
             <div class="novedad">
-                <img src="<?= base_url(asserts/img/novedad1.jpg) ?>" alt="novedad1">
+                <img src="<?= base_url('assets/img/novedad1.jpg') ?>" alt="novedad1">
                 <!--<h3>Novedad 1</h3>
                     <p>Descripcion de la novedad 1</p>-->
             </div>
             <div class="novedad">
-                <img src="<?= base_url(asserts/img/novedad2.jpg) ?>" alt="novedad2">
+                <img src="<?= base_url('assets/img/novedad2.jpg') ?>" alt="novedad2">
                 <!--<h3>Novedad 2</h3>
                     <p>Descripcion de la novedad 2</p>-->
             </div>
             <div class="novedad">
-                <img src="<?= base_url(asserts/img/novedad3.jpg) ?>" alt="novedad3">
+                <img src="<?= base_url('assets/img/novedad3.jpg') ?>" alt="novedad3">
                 <!--<h3>Novedad 3</h3>
                     <p>Descripcion de la novedad 3</p>-->
             </div>
             <div class="novedad">
-                <img src="<?= base_url(asserts/img/novedad4.jpg) ?>" alt="novedad4">
+                <img src="<?= base_url('assets/img/novedad4.jpg') ?>" alt="novedad4">
                 <!--<h3>Novedad 4</h3>
                     <p>Descripcion de la novedad 4</p>-->
             </div>
@@ -53,19 +53,19 @@
         <h2>Inicio</h2>
         <div class="enlaces">
             <div class="enlace1">
-                <img src="<?= base_url(asserts/img/novedad1.jpg) ?>" alt="novedad1">
+                <img src="<?= base_url('assets/img/novedad1.jpg') ?>" alt="novedad1">
                 <h3>Novedad 1</h3>
             </div>
             <div class="enlace2">
-                <img src="<?= base_url(asserts/img/novedad2.jpg) ?>" alt="novedad2">
+                <img src="<?= base_url('assets/img/novedad2.jpg') ?>" alt="novedad2">
                 <h3>Novedad 2</h3>
             </div>
             <div class="enlace3">
-                <img src="<?= base_url(asserts/img/novedad3.jpg) ?>" alt="novedad3">
+                <img src="<?= base_url('assets/img/novedad3.jpg') ?>" alt="novedad3">
                 <h3>Novedad 3</h3>
             </div>
             <div class="enlace4">
-                <img src="<?= base_url(asserts/img/novedad4.jpg) ?>" alt="novedad4">
+                <img src="<?= base_url('assets/img/novedad4.jpg') ?>" alt="novedad4">
                 <h3>Novedad 4</h3>
             </div>
         </div>
