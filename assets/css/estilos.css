@@ -1,0 +1,140 @@
+body{
+    width: 90%;
+    margin: auto;
+    font-family: Arial;
+}
+
+header{
+    background-color: #abacab;
+    padding: 20px;
+}
+footer{
+    background-color: #CCCCCC;
+    text-align: center;
+    padding: 10px;
+}
+nav li:hover {
+    background-color: gray;
+}
+nav a{
+    text-decoration: none;
+    color: black;
+}
+nav ul{
+    display: flex; /* Flexbox para distribuir los elementos en línea */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background-color: bisque;
+    border: 1px solid black;
+}
+
+nav ul li{
+    border-right: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 20px;
+
+}
+
+.position-login{
+    margin-left: auto; /* Empuja el elemento hacia la derecha */
+    border: solid black 1px;
+    order:1;
+}
+
+.position-basket{
+    margin-left: auto; /* Empuja el elemento hacia la derecha */
+    border: solid black 1px;
+    order:0;
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Cuando se apunta al modal con #login-modal → se muestra */
+.modal:target {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+  animation: aparecer 0.3s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  text-decoration: none;
+  font-size: 24px;
+  color: #333;
+}
+
+.modal:target {
+  display: flex;
+}
+
+.tab-content {
+  display: none;/* Oculto por defecto */
+}
+
+#login-tab:checked ~ #login-content{
+    display: block; /*Muestro el contenido del tab login*/
+}
+
+#register-tab:checked ~ #register-content{
+    display: block; /*Muestro el contenido del tab register*/
+}
+
+
+.tab-label {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+div.novedades{
+
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.novedades .novedad{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /*Falta el algoritmo js de opacidad*/
+}
+
+.novedades .novedad img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*Ajusta sin deformar*/
+}
+
+.enlaces{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
