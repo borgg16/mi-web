@@ -7,7 +7,34 @@
     <meta autor="Borja Morón">
     <link rel="stylesheet" href="<?= base_url('assets/css/estilos.css') ?>">
 </head>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 1. Seleccionamos todas las diapositivas
+            const slides = document.querySelectorAll('.novedades .novedad');
+            let indiceActual = 0;
+            const tiempoIntervalo = 4000; // Cambia cada 4000ms (4 segundos)
 
+            // Asegurarnos de que existe al menos una imagen
+            if (slides.length > 0) {
+                // 2. Mostramos la primera imagen al cargar
+                slides[0].classList.add('active');
+
+                // 3. Iniciamos el bucle infinito
+                setInterval(() => {
+                    // Quitamos la clase 'active' de la imagen actual
+                    slides[indiceActual].classList.remove('active');
+
+                    // Calculamos cuál es la siguiente (si llega al final, vuelve a 0)
+                    indiceActual = (indiceActual + 1) % slides.length;
+
+                    // Ponemos la clase 'active' a la nueva imagen
+                    slides[indiceActual].classList.add('active');
+                }, tiempoIntervalo);
+            }
+        });
+    </script>
+</body>
+</html>
 <body>
     <header>
         <h1>Pagina Web</h1>
