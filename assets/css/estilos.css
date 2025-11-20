@@ -1,145 +1,282 @@
-body{
-    width: 90%;
-    margin: auto;
-    font-family: Arial;
+/* --- VARIABLES Y RESET --- */
+:root {
+    --primary-color: #D32F2F; /* Rojo estilo Honorato */
+    --text-color: #333;
+    --bg-light: #f9f9f9;
+    --white: #ffffff;
 }
 
-header{
-    background-color: #abacab;
-    padding: 20px;
-}
-footer{
-    background-color: #CCCCCC;
-    text-align: center;
-    padding: 10px;
-}
-nav li:hover {
-    background-color: gray;
-}
-nav a{
-    text-decoration: none;
-    color: black;
-}
-nav ul{
-    display: flex; /* Flexbox para distribuir los elementos en línea */
-    padding: 0;
+* {
+    box-sizing: border-box; /* Esencial para que los tamaños no se rompan */
     margin: 0;
-    list-style: none;
-    background-color: bisque;
-    border: 1px solid black;
+    padding: 0;
 }
 
-nav ul li{
-    border-right: 1px solid black;
-    justify-content: center;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía moderna */
+    background-color: var(--white);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- HEADER Y NAV --- */
+header {
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave abajo */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0 5%;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 4px 20px;
-
+    height: 70px;
+    max-width: 1200px;
+    margin: auto;
 }
 
-.position-login{
-    margin-left: auto; /* Empuja el elemento hacia la derecha */
-    border: solid black 1px;
-    order:1;
+header h1 {
+    font-size: 24px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+/* Contenedor del logo (opcional, para dar márgenes si hace falta) */
+.logo-container {
+    display: flex;
+    align-items: center;
+    /* Si quieres limitar el ancho máximo del contenedor: */
+    max-width: 200px; 
 }
 
-.position-basket{
-    margin-left: auto; /* Empuja el elemento hacia la derecha */
-    border: solid black 1px;
-    order:0;
+/* La imagen del logotipo en sí */
+.logo-img {
+    max-height: 50px; 
+    width: auto; 
+    max-width: 100%; 
+    display: block; /* Elimina un pequeño espacio extraño que a veces aparece debajo de las imágenes */
 }
 
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  justify-content: center;
-  align-items: center;
+nav ul {
+    display: flex;
+    list-style: none;
+    background: transparent; /* Quitamos el color bisque */
+    border: none; /* Quitamos bordes */
 }
 
-/* Cuando se apunta al modal con #login-modal → se muestra */
-.modal:target {
-  display: flex;
+nav ul li {
+    margin: 0 15px;
+    border: none; /* Quitamos bordes de items */
+    padding: 0;
 }
 
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 400px;
-  width: 90%;
-  position: relative;
-  animation: aparecer 0.3s ease;
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: color 0.3s;
 }
 
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  text-decoration: none;
-  font-size: 24px;
-  color: #333;
+nav a:hover {
+    color: var(--primary-color);
 }
 
-.modal:target {
-  display: flex;
+.user-actions {
+    display: flex;
+    gap: 10px;
 }
 
-.tab-content {
-  display: none;/* Oculto por defecto */
+.btn-action {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 12px;
+    border: 1px solid #ccc;
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: all 0.3s;
 }
 
-#login-tab:checked ~ #login-content{
-    display: block; /*Muestro el contenido del tab login*/
+.btn-action:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
 }
 
-#register-tab:checked ~ #register-content{
-    display: block; /*Muestro el contenido del tab register*/
-}
-
-
-.tab-label {
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-div.novedades {
+/* --- SLIDER (HERO) --- */
+.hero-section {
     position: relative;
     width: 100%;
-    height: 400px;
+    height: 500px; /* Altura fija para el banner */
+    background-color: #000;
     overflow: hidden;
+}
+
+.novedades {
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 .novedades .novedad {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0; /* Invisibles por defecto */
-    transition: opacity 1s ease-in-out; /* Suavizado de 1 segundo */
-    z-index: 0;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 .novedades .novedad.active {
-    opacity: 1; /* La imagen activa se vuelve visible */
-    z-index: 1; /* Se pone por encima de las demás */
+    opacity: 0.6; /* Un poco transparente para que se lea el texto encima */
+    z-index: 1;
 }
 
 .novedades .novedad img {
     width: 100%;
     height: 100%;
+    object-fit: cover; /* La imagen cubre todo sin deformarse */
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+/* --- CONTENIDO Y GRID --- */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 300;
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #444;
+}
+
+.enlaces {
+    display: flex;
+    flex-wrap: wrap; /* Permite que bajen si no caben */
+    justify-content: center;
+    gap: 20px; /* Espacio entre tarjetas */
+}
+
+.card {
+    width: 250px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    text-align: center;
+    padding-bottom: 15px;
+    border: 1px solid #eee;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efecto flotante al pasar ratón */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
     object-fit: cover;
 }
 
-.enlaces{
-    display: flex;
-    justify-content: space-around;
-    margin: 20px 0;
+.card h3 {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #222;
+    color: #ccc;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+/* --- MODAL (Login) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal:target { display: flex; }
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 5px; /* Bordes menos redondos, más profesional */
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px; right: 20px;
+    font-size: 30px;
+    color: #999;
+    text-decoration: none;
+}
+
+.tabs { margin-top: 20px; }
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover { background-color: #b71c1c; }
+
+/* Logica Tabs CSS */
+.tab-content { display: none; }
+#login-tab:checked ~ #login-content,
+#register-tab:checked ~ #register-content { display: block; }
+.tab-label {
+    margin-right: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    padding-bottom: 5px;
+}
+input[type="radio"] { display: none; }
+input[type="radio"]:checked + .tab-label {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
 }
