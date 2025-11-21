@@ -1,0 +1,99 @@
+ /* --- ESTILOS ADICIONALES PARA CONTACTO --- */
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            max-width: 1000px; /* Un poco más estrecho que el main para que se vea centrado */
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Columna Izquierda: Información */
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 5px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 18px;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .info-item strong {
+            display: block;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        /* Columna Derecha: Formulario */
+        .contact-form-wrapper {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        /* Estilos específicos para el formulario reutilizando tu CSS base */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Tu CSS ya tiene estilos para input[type="text"], añadimos textarea */
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: inherit;
+            resize: vertical; /* Permite al usuario estirar la caja hacia abajo */
+            min-height: 120px;
+        }
+
+        /* Mensajes de alerta */
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 3px;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Mapa (iframe) */
+        .mapa-container {
+            margin-top: 40px;
+            width: 100%;
+            height: 300px;
+            background: #eee;
+        }
+        .mapa-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }

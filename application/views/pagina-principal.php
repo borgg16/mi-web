@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta autor="Borja Morón">
-    <link rel="stylesheet" href="<?= base_url('assets/css/estilos.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/pagina-principal.css') ?>">
 </head>
 
 <body>
@@ -19,11 +19,11 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="<?= base_url() ?>">Home</a></li>
-                    <li><a href="<?= site_url('pagina1') ?>">Pagina 1</a></li>
-                    <li><a href="<?= site_url('pagina2') ?>">Pagina 2</a></li>
-                    <li><a href="<?= site_url('pagina3') ?>">Pagina 3</a></li>
-                    <li><a href="<?= site_url('pagina4') ?>">Pagina 4</a></li>
+                    <li><a href="<?= base_url() ?>">Inicio</a></li>
+                    <li><a href="<?= site_url('percusion') ?>">Percusión</a></li>
+                    <li><a href="<?= site_url('viento') ?>">Viento</a></li>
+                    <li><a href="<?= site_url('accesorio') ?>">Accesorios</a></li>
+                    <li><a href="<?= site_url('contacto') ?>">Contacto</a></li>
                 </ul>
             </nav>
             <div class="user-actions">
@@ -110,7 +110,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Borja Morón. Todos los derechos reservados.</p>
+        <p>&copy; 2025 Borja Morón. Todos los derechos reservados.</p>
     </footer>
 
     <script>
