@@ -154,6 +154,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="tabs">
                     <input type="radio" id="login-tab" name="tab" checked>
                     <label for="login-tab" class="tab-label">Entrar</label>
+
+                    <input type="radio" id="register-tab" name="tab">
+                    <label for="register-tab" class="tab-label">Registro</label>
+
                     <div class="tab-content" id="login-content">
                         <form>
                             <input type="text" placeholder="Usuario" required>
@@ -161,11 +165,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <button type="submit">Iniciar Sesión</button>
                         </form>
                     </div>
+
+                    <div class="tab-content" id="register-content">
+                        <form>
+                            <input type="text" placeholder="Usuario" required>
+                            <input type="email" placeholder="Email" required>
+                            <input type="password" placeholder="Contraseña" required>
+                            <button type="submit">Registrarse</button>
+                        </form>
+                    </div>
                 </div>
             </section>
         </div>
     </div>
-
     <footer>
         <p>&copy; 2025 Borja Morón. Todos los derechos reservados.</p>
     </footer>

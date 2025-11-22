@@ -20,10 +20,10 @@
             <nav>
                 <ul>
                     <li><a href="<?= base_url() ?>">Inicio</a></li>
-                    <li><a href="<?= site_url('percusion') ?>">Percusión</a></li>
-                    <li><a href="<?= site_url('viento') ?>">Viento</a></li>
-                    <li><a href="<?= site_url('accesorio') ?>">Accesorios</a></li>
-                    <li><a href="<?= site_url('contacto') ?>">Contacto</a></li>
+                    <li><a href="<?= site_url('Mi_web/percusion') ?>">Percusión</a></li>
+                    <li><a href="<?= site_url('Mi_web/viento') ?>">Viento</a></li>
+                    <li><a href="<?= site_url('Mi_web/accesorio') ?>">Accesorios</a></li>
+                    <li><a href="<?= site_url('Mi_web/contacto') ?>">Contacto</a></li>
                 </ul>
             </nav>
             <div class="user-actions">
@@ -37,8 +37,7 @@
         <div class="detalle-container">
             
             <div class="imagen-grande">
-                <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" 
-                     alt="<?= $producto['nombre'] ?>">
+                <img src="<?= base_url('assets/img/' . $producto['imagen']) ?>" alt="<?= $producto['nombre'] ?>">
             </div>
 
             <div class="info-detalle">
@@ -64,3 +63,34 @@
             <a href="#" class="close-btn">&times;</a>
             <section class="login-section">
                 <h2>Acceso Usuario</h2>
+                <div class="tabs">
+                    <input type="radio" id="login-tab" name="tab" checked>
+                    <label for="login-tab" class="tab-label">Entrar</label>
+
+                    <input type="radio" id="register-tab" name="tab">
+                    <label for="register-tab" class="tab-label">Registro</label>
+
+                    <div class="tab-content" id="login-content">
+                        <form>
+                            <input type="text" placeholder="Usuario" required>
+                            <input type="password" placeholder="Contraseña" required>
+                            <button type="submit">Iniciar Sesión</button>
+                        </form>
+                    </div>
+
+                    <div class="tab-content" id="register-content">
+                        <form>
+                            <input type="text" placeholder="Usuario" required>
+                            <input type="email" placeholder="Email" required>
+                            <input type="password" placeholder="Contraseña" required>
+                            <button type="submit">Registrarse</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Borja Morón. Todos los derechos reservados.</p>
+    </footer>
