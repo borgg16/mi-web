@@ -1,0 +1,41 @@
+.detalle-container {
+            display: flex;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+        }
+        .imagen-grande {
+            flex: 1;
+            text-align: center;
+        }
+        .imagen-grande img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .info-detalle {
+            flex: 1;
+            padding-top: 20px;
+        }
+        .info-detalle h1 { font-size: 32px; color: #333; margin-bottom: 10px; }
+        .precio-grande { 
+            font-size: 28px; 
+            color: var(--primary-color); 
+            font-weight: bold; 
+            margin-bottom: 20px; 
+            display: block;
+        }
+        .descripcion { line-height: 1.8; color: #666; margin-bottom: 30px; }
+        .btn-comprar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        /* Responsive */
+        @media(max-width: 768px) { .detalle-container { flex-direction: column; } }

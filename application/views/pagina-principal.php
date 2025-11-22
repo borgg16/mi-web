@@ -57,20 +57,28 @@
             <h2 class="section-title">Productos Destacados</h2>
             <div class="enlaces">
                 <div class="card">
-                    <img src="<?= base_url('assets/img/novedad1.jpg') ?>" alt="novedad1">
-                    <h3>Novedad 1</h3>
+                    <a href="<?= site_url('Mi_web/ver_producto/'. $producto_home2['id'])?>" style="text-decoration: none; color: inherit;">
+                    <img src="<?= base_url('assets/img/'.$producto_home2['imagen']) ?>" alt="<?= $producto_home1['nombre'] ?>">
+                    <h3><?= $producto_home1['nombre'] ?></h3>
+                    </a>
                 </div>
                 <div class="card">
-                    <img src="<?= base_url('assets/img/novedad2.jpg') ?>" alt="novedad2">
-                    <h3>Novedad 2</h3>
+                    <a href="<?= site_url('Mi_web/ver_producto/'. $producto_home2['id'])?>" style="text-decoration: none; color: inherit;">
+                    <img src="<?= base_url('assets/img/'.$producto_home2['imagen']) ?>" alt="<?= $producto_home2['nombre'] ?>">
+                    <h3><?= $producto_home2['nombre'] ?></h3>
+                    </a>
                 </div>
                 <div class="card">
-                    <img src="<?= base_url('assets/img/novedad3.jpg') ?>" alt="novedad3">
-                    <h3>Novedad 3</h3>
+                    <a href="<?= site_url('Mi_web/ver_producto/'. $producto_home3['id'])?>" style="text-decoration: none; color: inherit;">
+                    <img src="<?= base_url('assets/img/'.$producto_home3['imagen']) ?>" alt="<?= $producto_home3['nombre'] ?>">
+                    <h3><?= $producto_home3['nombre'] ?></h3>
+                    </a>
                 </div>
                 <div class="card">
-                    <img src="<?= base_url('assets/img/novedad4.jpg') ?>" alt="novedad4">
-                    <h3>Novedad 4</h3>
+                    <a href="<?= site_url('Mi_web/ver_producto/'. $producto_home4['id'])?>" style="text-decoration: none; color: inherit;">
+                    <img src="<?= base_url('assets/img/'.$producto_home4['imagen']) ?>" alt="<?= $producto_home4['nombre'] ?>">
+                    <h3><?= $producto_home4['nombre'] ?></h3>
+                    </a>
                 </div>
             </div>
         </section>
