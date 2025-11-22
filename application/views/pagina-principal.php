@@ -20,10 +20,10 @@
             <nav>
                 <ul>
                     <li><a href="<?= base_url() ?>">Inicio</a></li>
-                    <li><a href="<?= site_url('percusion') ?>">Percusión</a></li>
-                    <li><a href="<?= site_url('viento') ?>">Viento</a></li>
-                    <li><a href="<?= site_url('accesorio') ?>">Accesorios</a></li>
-                    <li><a href="<?= site_url('contacto') ?>">Contacto</a></li>
+                    <li><a href="<?= site_url('Mi_web/percusion') ?>">Percusión</a></li>
+                    <li><a href="<?= site_url('Mi_web/viento') ?>">Viento</a></li>
+                    <li><a href="<?= site_url('Mi_web/accesorio') ?>">Accesorios</a></li>
+                    <li><a href="<?= site_url('Mi_web/contacto') ?>">Contacto</a></li>
                 </ul>
             </nav>
             <div class="user-actions">
@@ -57,8 +57,8 @@
             <h2 class="section-title">Productos Destacados</h2>
             <div class="enlaces">
                 <div class="card">
-                    <a href="<?= site_url('Mi_web/ver_producto/'. $producto_home2['id'])?>" style="text-decoration: none; color: inherit;">
-                    <img src="<?= base_url('assets/img/'.$producto_home2['imagen']) ?>" alt="<?= $producto_home1['nombre'] ?>">
+                    <a href="<?= site_url('Mi_web/ver_producto/'. $producto_home1['id'])?>" style="text-decoration: none; color: inherit;">
+                    <img src="<?= base_url('assets/img/'.$producto_home1['imagen']) ?>" alt="<?= $producto_home1['nombre'] ?>">
                     <h3><?= $producto_home1['nombre'] ?></h3>
                     </a>
                 </div>

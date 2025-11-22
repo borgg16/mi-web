@@ -17,8 +17,18 @@
                     <img src="<?= base_url('assets/img/logo.png') ?>" alt="Logotipo MG" class="logo-img">
                 </a>
             </div>
-            <div style="margin-left: auto;">
-                <a href="<?= base_url() ?>" class="btn-action">VOLVER A INICIO</a>
+            <nav>
+                <ul>
+                    <li><a href="<?= base_url() ?>">Inicio</a></li>
+                    <li><a href="<?= site_url('percusion') ?>">Percusión</a></li>
+                    <li><a href="<?= site_url('viento') ?>">Viento</a></li>
+                    <li><a href="<?= site_url('accesorio') ?>">Accesorios</a></li>
+                    <li><a href="<?= site_url('contacto') ?>">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <a href="#login-modal" class="btn-action">Login</a>
+                <a href="#basket-modal" class="btn-action">Cesta</a>
             </div>
         </div>
     </header>
@@ -49,8 +59,8 @@
         </div>
     </main>
     
-    <footer>
-        <p>&copy; 2025 Borja Morón. Todos los derechos reservados.</p>
-    </footer>
-</body>
-</html>
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <a href="#" class="close-btn">&times;</a>
+            <section class="login-section">
+                <h2>Acceso Usuario</h2>

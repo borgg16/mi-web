@@ -49,10 +49,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <nav>
                 <ul>
                     <li><a href="<?= base_url() ?>">Inicio</a></li>
-                    <li><a href="<?= site_url('percusion') ?>">Percusión</a></li>
-                    <li><a href="<?= site_url('viento') ?>">Viento</a></li>
-                    <li><a href="<?= site_url('accesorios') ?>">Accesorios</a></li>
-                    <li><a href="<?= site_url('contacto') ?>" style="color: var(--primary-color);">Contacto</a></li>
+                    <li><a href="<?= site_url('Mi_web/percusion') ?>">Percusión</a></li>
+                    <li><a href="<?= site_url('Mi_web/viento') ?>">Viento</a></li>
+                    <li><a href="<?= site_url('Mi_web/accesorios') ?>">Accesorios</a></li>
+                    <li><a href="<?= site_url('Mi_web/contacto') ?>" style="color: var(--primary-color);">Contacto</a></li>
                 </ul>
             </nav>
             <div class="user-actions">
