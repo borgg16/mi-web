@@ -8,4 +8,10 @@ class detalleProducto_model extends CI_Model {
         return $query->row_array();
     }
 
+    public function obtener_por_categoria($categoria){
+        $this->db->where('categoria',$categoria);
+        $query = $this->db->get('productos');
+        return $query->result_array();
+    }
+
 }

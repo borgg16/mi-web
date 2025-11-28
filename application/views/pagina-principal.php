@@ -20,10 +20,10 @@
             <nav>
                 <ul>
                     <li><a href="<?= base_url() ?>">Inicio</a></li>
-                    <li><a href="<?= site_url('Mi_web/percusion') ?>">Percusión</a></li>
-                    <li><a href="<?= site_url('Mi_web/viento') ?>">Viento</a></li>
-                    <li><a href="<?= site_url('Mi_web/accesorio') ?>">Accesorios</a></li>
-                    <li><a href="<?= site_url('Mi_web/contacto') ?>">Contacto</a></li>
+                    <li><a href="<?= site_url('Mi_web/percusion') ?>" class="<?= (isset($categoria_actual) && $categoria_actual == 'percusion') ? 'active' : ''?>">Percusión</a></li>
+                    <li><a href="<?= site_url('Mi_web/viento') ?>" class="<?= (isset($categoria_actual) && $categoria_actual == 'viento') ? 'active' : ''?>">Viento</a></li>
+                    <li><a href="<?= site_url('Mi_web/accesorios') ?>" class="<?= (isset($categoria_actual) && $categoria_actual == 'accesorios') ? 'active' : ''?>">Accesorios</a></li>
+                    <li><a href="<?= site_url('Mi_web/contacto') ?>" class="<?= (isset($categoria_actual) && $categoria_actual == 'contacto') ? 'active' : ''?>">Contacto</a></li>
                 </ul>
             </nav>
             <div class="user-actions">
