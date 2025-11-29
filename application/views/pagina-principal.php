@@ -20,14 +20,34 @@
             <nav>
                 <ul>
                     <li><a href="<?= base_url() ?>">Inicio</a></li>
-                    <li><a href="<?= site_url('Mi_web/percusion') ?>" class="<?= (isset($categoria_actual) && $categoria_actual == 'percusion') ? 'active' : ''?>">Percusión</a></li>
-                    <li><a href="<?= site_url('Mi_web/viento') ?>" class="<?= (isset($categoria_actual) && $categoria_actual == 'viento') ? 'active' : ''?>">Viento</a></li>
-                    <li><a href="<?= site_url('Mi_web/accesorios') ?>" class="<?= (isset($categoria_actual) && $categoria_actual == 'accesorios') ? 'active' : ''?>">Accesorios</a></li>
-                    <li><a href="<?= site_url('Mi_web/contacto') ?>" class="<?= (isset($categoria_actual) && $categoria_actual == 'contacto') ? 'active' : ''?>">Contacto</a></li>
+                    <li><a href="<?= site_url('Mi_web/percusion') ?>"
+                            class="<?= (isset($categoria_actual) && $categoria_actual == 'percusion') ? 'active' : '' ?>">Percusión</a>
+                    </li>
+                    <li><a href="<?= site_url('Mi_web/viento') ?>"
+                            class="<?= (isset($categoria_actual) && $categoria_actual == 'viento') ? 'active' : '' ?>">Viento</a>
+                    </li>
+                    <li><a href="<?= site_url('Mi_web/accesorios') ?>"
+                            class="<?= (isset($categoria_actual) && $categoria_actual == 'accesorios') ? 'active' : '' ?>">Accesorios</a>
+                    </li>
+                    <li><a href="<?= site_url('Mi_web/contacto') ?>"
+                            class="<?= (isset($categoria_actual) && $categoria_actual == 'contacto') ? 'active' : '' ?>">Contacto</a>
+                    </li>
                 </ul>
             </nav>
             <div class="user-actions">
-                <a href="#login-modal" class="btn-action">Login</a>
+
+                <?php if ($this->session->userdata('logged_in')): ?>
+                    <!-- SI ESTÁ LOGUEADO: Mostramos saludo y botón Salir -->
+                    <span style="font-size: 14px; margin-right:10px;">Hola,
+                        <?= $this->session->userdata('usuario') ?></span>
+                    <a href="<?= site_url('Auth/logout') ?>" class="btn-action btn-logout">Salir</a>
+
+                <?php else: ?>
+                    <!-- SI NO ESTÁ LOGUEADO: Mostramos botón Login -->
+                    <a href="#login-modal" class="btn-action">Login</a>
+
+                <?php endif; ?>
+
                 <a href="#basket-modal" class="btn-action">Cesta</a>
             </div>
         </div>
@@ -57,27 +77,35 @@
             <h2 class="section-title">Productos Destacados</h2>
             <div class="enlaces">
                 <div class="card">
-                    <a href="<?= site_url('Mi_web/ver_producto/'. $producto_home1['id'])?>" style="text-decoration: none; color: inherit;">
-                    <img src="<?= base_url('assets/img/'.$producto_home1['imagen']) ?>" alt="<?= $producto_home1['nombre'] ?>">
-                    <h3><?= $producto_home1['nombre'] ?></h3>
+                    <a href="<?= site_url('Mi_web/ver_producto/' . $producto_home1['id']) ?>"
+                        style="text-decoration: none; color: inherit;">
+                        <img src="<?= base_url('assets/img/' . $producto_home1['imagen']) ?>"
+                            alt="<?= $producto_home1['nombre'] ?>">
+                        <h3><?= $producto_home1['nombre'] ?></h3>
                     </a>
                 </div>
                 <div class="card">
-                    <a href="<?= site_url('Mi_web/ver_producto/'. $producto_home2['id'])?>" style="text-decoration: none; color: inherit;">
-                    <img src="<?= base_url('assets/img/'.$producto_home2['imagen']) ?>" alt="<?= $producto_home2['nombre'] ?>">
-                    <h3><?= $producto_home2['nombre'] ?></h3>
+                    <a href="<?= site_url('Mi_web/ver_producto/' . $producto_home2['id']) ?>"
+                        style="text-decoration: none; color: inherit;">
+                        <img src="<?= base_url('assets/img/' . $producto_home2['imagen']) ?>"
+                            alt="<?= $producto_home2['nombre'] ?>">
+                        <h3><?= $producto_home2['nombre'] ?></h3>
                     </a>
                 </div>
                 <div class="card">
-                    <a href="<?= site_url('Mi_web/ver_producto/'. $producto_home3['id'])?>" style="text-decoration: none; color: inherit;">
-                    <img src="<?= base_url('assets/img/'.$producto_home3['imagen']) ?>" alt="<?= $producto_home3['nombre'] ?>">
-                    <h3><?= $producto_home3['nombre'] ?></h3>
+                    <a href="<?= site_url('Mi_web/ver_producto/' . $producto_home3['id']) ?>"
+                        style="text-decoration: none; color: inherit;">
+                        <img src="<?= base_url('assets/img/' . $producto_home3['imagen']) ?>"
+                            alt="<?= $producto_home3['nombre'] ?>">
+                        <h3><?= $producto_home3['nombre'] ?></h3>
                     </a>
                 </div>
                 <div class="card">
-                    <a href="<?= site_url('Mi_web/ver_producto/'. $producto_home4['id'])?>" style="text-decoration: none; color: inherit;">
-                    <img src="<?= base_url('assets/img/'.$producto_home4['imagen']) ?>" alt="<?= $producto_home4['nombre'] ?>">
-                    <h3><?= $producto_home4['nombre'] ?></h3>
+                    <a href="<?= site_url('Mi_web/ver_producto/' . $producto_home4['id']) ?>"
+                        style="text-decoration: none; color: inherit;">
+                        <img src="<?= base_url('assets/img/' . $producto_home4['imagen']) ?>"
+                            alt="<?= $producto_home4['nombre'] ?>">
+                        <h3><?= $producto_home4['nombre'] ?></h3>
                     </a>
                 </div>
             </div>
@@ -96,19 +124,24 @@
                     <input type="radio" id="register-tab" name="tab">
                     <label for="register-tab" class="tab-label">Registro</label>
 
+                    <!-- PARTE DEL LOGIN -->
                     <div class="tab-content" id="login-content">
-                        <form>
-                            <input type="text" placeholder="Usuario" required>
-                            <input type="password" placeholder="Contraseña" required>
+                        <!-- Action: Apunta al Controlador Auth, función login -->
+                        <form action="<?= site_url('Auth/login') ?>" method="post">
+                            <!-- Name: Es vital para que el controlador pueda leerlo -->
+                            <input type="text" name="usuario" placeholder="Usuario" required>
+                            <input type="password" name="password" placeholder="Contraseña" required>
                             <button type="submit">Iniciar Sesión</button>
                         </form>
                     </div>
 
+                    <!-- PARTE DEL REGISTRO -->
                     <div class="tab-content" id="register-content">
-                        <form>
-                            <input type="text" placeholder="Usuario" required>
-                            <input type="email" placeholder="Email" required>
-                            <input type="password" placeholder="Contraseña" required>
+                        <!-- Action: Apunta al Controlador Auth, función registrar -->
+                        <form action="<?= site_url('Auth/registrar') ?>" method="post">
+                            <input type="text" name="usuario" placeholder="Usuario" required>
+                            <input type="email" name="email" placeholder="Email" required>
+                            <input type="password" name="password" placeholder="Contraseña" required>
                             <button type="submit">Registrarse</button>
                         </form>
                     </div>

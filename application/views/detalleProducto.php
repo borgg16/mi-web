@@ -36,7 +36,19 @@
                 </ul>
             </nav>
             <div class="user-actions">
-                <a href="#login-modal" class="btn-action">Login</a>
+
+                <?php if ($this->session->userdata('logged_in')): ?>
+                    <!-- SI ESTÁ LOGUEADO: Mostramos saludo y botón Salir -->
+                    <span style="font-size: 14px; margin-right:10px;">Hola,
+                        <?= $this->session->userdata('usuario') ?></span>
+                    <a href="<?= site_url('Auth/logout') ?>" class="btn-action btn-logout">Salir</a>
+
+                <?php else: ?>
+                    <!-- SI NO ESTÁ LOGUEADO: Mostramos botón Login -->
+                    <a href="#login-modal" class="btn-action">Login</a>
+
+                <?php endif; ?>
+
                 <a href="#basket-modal" class="btn-action">Cesta</a>
             </div>
         </div>
@@ -82,19 +94,24 @@
                     <input type="radio" id="register-tab" name="tab">
                     <label for="register-tab" class="tab-label">Registro</label>
 
+                    <!-- PARTE DEL LOGIN -->
                     <div class="tab-content" id="login-content">
-                        <form>
-                            <input type="text" placeholder="Usuario" required>
-                            <input type="password" placeholder="Contraseña" required>
+                        <!-- Action: Apunta al Controlador Auth, función login -->
+                        <form action="<?= site_url('Auth/login') ?>" method="post">
+                            <!-- Name: Es vital para que el controlador pueda leerlo -->
+                            <input type="text" name="usuario" placeholder="Usuario" required>
+                            <input type="password" name="password" placeholder="Contraseña" required>
                             <button type="submit">Iniciar Sesión</button>
                         </form>
                     </div>
 
+                    <!-- PARTE DEL REGISTRO -->
                     <div class="tab-content" id="register-content">
-                        <form>
-                            <input type="text" placeholder="Usuario" required>
-                            <input type="email" placeholder="Email" required>
-                            <input type="password" placeholder="Contraseña" required>
+                        <!-- Action: Apunta al Controlador Auth, función registrar -->
+                        <form action="<?= site_url('Auth/registrar') ?>" method="post">
+                            <input type="text" name="usuario" placeholder="Usuario" required>
+                            <input type="email" name="email" placeholder="Email" required>
+                            <input type="password" name="password" placeholder="Contraseña" required>
                             <button type="submit">Registrarse</button>
                         </form>
                     </div>
