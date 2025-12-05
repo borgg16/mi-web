@@ -49,7 +49,11 @@
 
                 <?php endif; ?>
 
-                <a href="#basket-modal" class="btn-action">Cesta</a>
+                <?php if ($this->session->userdata('logged_in')): ?>
+                    <a href="<?= site_url('Carrito') ?>" class="btn-action">Cesta</a>
+                <?php else: ?>
+                    <a href="#login-modal" class="btn-action">Cesta</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
@@ -63,21 +67,27 @@
 
             <div class="info-detalle">
                 <h1><?= $producto['nombre'] ?></h1>
+                <span class="precio-grande"><?= number_format($producto['precio'], 2) ?> €</span>
+                <p class="descripcion"><?= $producto['descripcion'] ?></p>
 
-                <span class="precio-grande"><?= number_format($producto['precio'], 2, ',', '.') ?> €</span>
+                <?php if ($this->session->userdata('logged_in')): ?>
 
-                <p class="descripcion">
-                    <?= $producto['descripcion'] ?>
-                </p>
+                    <form action="<?= site_url('Carrito/agregar') ?>" method="post">
 
-                <div class="acciones">
-                    <a href="#" class="btn-comprar">Añadir a la Cesta</a>
-                    <br><br>
-                    <a href="javascript:history.back()" class="btn-volver"
-                        style="color:#999; text-decoration:none; cursor: pointer;">
-                        &larr; Volver atrás
-                    </a>
-                </div>
+                        <input type="hidden" name="producto_id" value="<?= $producto['id'] ?>">
+
+                        <div style="margin: 20px 0;">
+                            <label for="cant">Cantidad:</label>
+                            <input type="number" name="cantidad" value="1" min="1" max="10"
+                                style="width: 50px; padding: 5px; text-align: center;">
+                        </div>
+
+                        <button type="submit" class="btn-comprar">Añadir a la Cesta</button>
+                    </form>
+
+                <?php else: ?>
+                    <p style="color: red; font-weight: bold;">Inicia sesión para poder comprar</p>
+                <?php endif; ?>
             </div>
         </div>
     </main>

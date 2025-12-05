@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <title>Contacto | Instrumentos MG</title>
     <meta charset="UTF-8">
@@ -77,13 +78,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <?php endif; ?>
 
-                <a href="#basket-modal" class="btn-action">Cesta</a>
+                <?php if ($this->session->userdata('logged_in')): ?>
+                    <a href="<?= site_url('Carrito') ?>" class="btn-action">Cesta</a>
+                <?php else: ?>
+                    <a href="#login-modal" class="btn-action">Cesta</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
 
     <main>
-        <section class="hero-text" style="position: relative; color: #333; height: auto; margin-top: 40px; transform: none; top: auto; left: auto; text-shadow: none;">
+        <section class="hero-text"
+            style="position: relative; color: #333; height: auto; margin-top: 40px; transform: none; top: auto; left: auto; text-shadow: none;">
             <h2 class="section-title">Contacta con Nosotros</h2>
             <p style="text-align: center; max-width: 600px; margin: 0 auto; color: #666;">
                 ¿Tienes dudas sobre algún instrumento? Escríbenos y te asesoraremos.
@@ -91,10 +97,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </section>
 
         <div class="contact-container">
-            
+
             <div class="contact-info">
                 <h3>Nuestra Tienda</h3>
-                
+
                 <div class="info-item">
                     <strong>Dirección</strong>
                     Calle de la Música, 123<br>
@@ -119,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
 
             <div class="contact-form-wrapper">
-                
+
                 <?php if ($mensaje_enviado): ?>
                     <div class="alert alert-success">
                         ¡Gracias! Tu mensaje se ha enviado correctamente. Te contactaremos pronto.
@@ -154,15 +160,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <div class="form-group">
                         <label for="mensaje">Mensaje</label>
-                        <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu consulta..." required></textarea>
+                        <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu consulta..."
+                            required></textarea>
                     </div>
 
-                    <button type="submit" class="btn-action" style="width: 100%; padding: 12px; font-size: 16px;">Enviar Mensaje</button>
+                    <button type="submit" class="btn-action" style="width: 100%; padding: 12px; font-size: 16px;">Enviar
+                        Mensaje</button>
                 </form>
             </div>
         </div>
 
-        
+
 
     </main>
 
@@ -203,10 +211,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </section>
         </div>
     </div>
-    
+
     <footer>
         <p>&copy; 2025 Borja Morón. Todos los derechos reservados.</p>
     </footer>
 
 </body>
+
 </html>

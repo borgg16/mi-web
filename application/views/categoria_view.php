@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <title><?= $titulo ?></title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="<?= base_url('assets/css/pagina-principal.css') ?>">
 </head>
+
 <body>
     <header>
         <div class="header-content">
@@ -44,7 +46,11 @@
 
                 <?php endif; ?>
 
-                <a href="#basket-modal" class="btn-action">Cesta</a>
+                <?php if ($this->session->userdata('logged_in')): ?>
+                    <a href="<?= site_url('Carrito') ?>" class="btn-action">Cesta</a>
+                <?php else: ?>
+                    <a href="#login-modal" class="btn-action">Cesta</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
@@ -53,16 +59,16 @@
         <section class="container">
             <h1><?= $titulo ?></h1>
             <br>
-            <?php if(empty($productos)): ?>
+            <?php if (empty($productos)): ?>
                 <p>No hay productos en esta categoría.</p>
             <?php else: ?>
                 <div class="enlaces" style="display:flex; flex-wrap:wrap; gap:20px;">
-                    <?php foreach($productos as $prod): ?>
+                    <?php foreach ($productos as $prod): ?>
                         <div class="card">
                             <a href="<?= site_url('Mi_web/ver_producto/' . $prod['id']) ?>" class="link-detalle">
-                            <img src="<?= base_url('assets/img/'.$prod['imagen']) ?>" alt="<?= $prod['nombre'] ?>">
-                            <h3><?= $prod['nombre'] ?></h3>
-                            <p><?= $prod['precio'] ?> €</p>
+                                <img src="<?= base_url('assets/img/' . $prod['imagen']) ?>" alt="<?= $prod['nombre'] ?>">
+                                <h3><?= $prod['nombre'] ?></h3>
+                                <p><?= $prod['precio'] ?> €</p>
                             </a>
                         </div>
                     <?php endforeach; ?>
@@ -71,7 +77,7 @@
         </section>
     </main>
 
-        <div id="login-modal" class="modal">
+    <div id="login-modal" class="modal">
         <div class="modal-content">
             <a href="#" class="close-btn">&times;</a>
             <section class="login-section">
@@ -113,4 +119,5 @@
         <p>&copy; 2025 Borja Morón. Todos los derechos reservados.</p>
     </footer>
 </body>
+
 </html>

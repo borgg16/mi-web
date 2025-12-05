@@ -48,7 +48,11 @@
 
                 <?php endif; ?>
 
-                <a href="#basket-modal" class="btn-action">Cesta</a>
+                <?php if ($this->session->userdata('logged_in')): ?>
+                    <a href="<?= site_url('Carrito') ?>" class="btn-action">Cesta</a>
+                <?php else: ?>
+                    <a href="#login-modal" class="btn-action">Cesta</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
