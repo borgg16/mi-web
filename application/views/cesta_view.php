@@ -51,10 +51,18 @@
             </table>
 
             <div style="text-align: right; margin-top: 30px;">
-                <h3>Total a Pagar: <?= number_format($total, 2) ?> €</h3>
-                
-                <a href="<?= site_url('Carrito/finalizar_compra') ?>" class="btn-pagar">Finalizar Compra</a>
-            </div>
+    <h3>Total a Pagar: <?= number_format($total, 2) ?> €</h3>
+    
+    <form action="<?= site_url('Pasarela/index') ?>" method="post">
+        
+        <input type="hidden" name="importe" value="<?= $total ?>">
+        
+        <button type="submit" class="btn-pagar">
+            Tramitar Pedido
+        </button>
+    
+    </form>
+</div>
 
         <?php endif; ?>
     </main>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-12-2025 a las 11:19:51
+-- Tiempo de generación: 17-12-2025 a las 05:49:40
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -34,7 +34,36 @@ CREATE TABLE IF NOT EXISTS `cesta` (
   `cantidad` int(11) NOT NULL DEFAULT 1,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pedidos`
+--
+
+CREATE TABLE IF NOT EXISTS `pedidos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `usuario_id` int(11) NOT NULL,
+  `total` decimal(10,2) NOT NULL,
+  `direccion` varchar(255) NOT NULL,
+  `ciudad` varchar(100) NOT NULL,
+  `codigopostal` varchar(10) NOT NULL,
+  `telefono` varchar(20) NOT NULL,
+  `estado` enum('pendiente','pagado','cancelado') NOT NULL DEFAULT 'pendiente',
+  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `usuario_id` (`usuario_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pedidos`
+--
+
+INSERT INTO `pedidos` (`id`, `usuario_id`, `total`, `direccion`, `ciudad`, `codigopostal`, `telefono`, `estado`, `fecha`) VALUES
+(2, 1, 372.40, 'asdasdasd', 'asdasdasd', '12345', '123456789', 'pagado', '2025-12-16 21:02:51'),
+(3, 1, 638.58, 'asdas', 'asd', '12345', '123123', 'pagado', '2025-12-16 21:07:27'),
+(4, 1, 152.15, 'asddas', 'asdz', '12345', '12233456', 'pendiente', '2025-12-16 21:09:06');
 
 -- --------------------------------------------------------
 
@@ -88,6 +117,16 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `usuario`, `email`, `password`, `fecha_registro`) VALUES
 (1, 'borjamoron', 'borja@prueba.com', '$2y$10$tq8on0xCDO9UKq.NYlGMnur.2xPAjbPc2S/PDmQiyqmyG2byhuBK.', '2025-11-29 12:18:34');
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD CONSTRAINT `pedidos_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
